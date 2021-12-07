@@ -59,6 +59,8 @@ namespace MAS_v2
             public bool SlotFirstSolo = false;
             public bool SlotFirstDouble = false;
 
+            private bool Looting = false;
+
             public void LoadCFG()
             {
                 RegistryKey currentUserKey = Registry.CurrentUser;
@@ -141,6 +143,7 @@ namespace MAS_v2
             }
             private void Double()
             {
+                Looting = true;
                 var screenBounds = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
                 var outputX = settings.FirstSlotDouble.X * 65535 / screenBounds.Width;
                 var outputY = settings.FirstSlotDouble.Y * 65535 / screenBounds.Height;
@@ -215,9 +218,11 @@ namespace MAS_v2
 
                 KeyDown(Key.E);
                 KeyUp(Key.E);
+                Looting = false;
             }
             private void Solo()
             {
+                Looting = true;
                 var screenBounds = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
                 var outputX = settings.FirstSlotSolo.X * 65535 / screenBounds.Width;
                 var outputY = settings.FirstSlotSolo.Y * 65535 / screenBounds.Height;
@@ -256,7 +261,16 @@ namespace MAS_v2
 
                 KeyDown(Key.E);
                 KeyUp(Key.E);
+                Looting = false;
 
+            }
+            public override bool OnMouseMove(int x, int y)
+            {
+                if (Looting)
+                {
+                    return true;
+                }
+                return false;
             }
             public override void Update()
             {
