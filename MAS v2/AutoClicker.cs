@@ -44,8 +44,10 @@ namespace MAS_v2
                 if (key != "None" || key != "Left" || key != "Right") { guna2ComboBox1.Items.Add(key); }
             }
 
-
-            guna2ComboBox1.Text = clicker.settings.key.ToString();
+            if (clicker.settings.key != Key.None)
+                guna2ComboBox1.Text = clicker.settings.key.ToString();
+            else if (clicker.settings.mouseKey != MouseKey.None)
+                guna2ComboBox1.Text = clicker.settings.mouseKey.ToString();
             guna2TextBox1.Text = clicker.settings.delay.ToString();
 
             /* Загрузка макроса */
@@ -149,7 +151,9 @@ namespace MAS_v2
 
             public class Settings
             {
+                [JsonConverter(typeof(StringEnumConverter))]
                 public Key key;
+                [JsonConverter(typeof(StringEnumConverter))]
                 public MouseKey mouseKey;
                 public int delay = 40;
 

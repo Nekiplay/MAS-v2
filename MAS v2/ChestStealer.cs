@@ -24,16 +24,12 @@ namespace MAS_v2
             try
             {
                 stealer.LoadCFG();
+                Console.WriteLine("Загружен");
             }
             catch
             {
                 stealer.SaveCFG();
             }
-
-            guna2ComboBox1.Text = stealer.settings.KeySolo.ToString();
-            guna2ComboBox2.Text = stealer.settings.KeyDouble.ToString();
-
-            guna2TextBox1.Text = stealer.settings.offset.ToString();
 
             /* Добавление клавишы активаций */
             string[] keys = Enum.GetNames(typeof(Key));
@@ -45,6 +41,12 @@ namespace MAS_v2
                     guna2ComboBox2.Items.Add(key);
                 }
             }
+
+            guna2ComboBox1.Text = stealer.settings.KeySolo.ToString();
+            guna2ComboBox2.Text = stealer.settings.KeyDouble.ToString();
+
+            guna2TextBox1.Text = stealer.settings.offset.ToString();
+
             manager.LoadMacros(stealer);
         }
 
@@ -274,7 +276,9 @@ namespace MAS_v2
             {
                 public int offset = 35;
 
+                [JsonConverter(typeof(StringEnumConverter))]
                 public Key KeySolo;
+                [JsonConverter(typeof(StringEnumConverter))]
                 public Key KeyDouble;
                 public Point FirstSlotSolo;
                 public Point FirstSlotDouble;
@@ -318,6 +322,11 @@ namespace MAS_v2
         {
             MessageBox.Show("Нажмите колосеко мышки на первый слот");
             stealer.SlotFirstSolo = true;
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

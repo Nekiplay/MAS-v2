@@ -35,12 +35,12 @@ namespace MAS_v2
             this.label4 = new System.Windows.Forms.Label();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -79,6 +79,7 @@ namespace MAS_v2
             this.guna2Button1.Size = new System.Drawing.Size(18, 18);
             this.guna2Button1.TabIndex = 8;
             this.guna2Button1.Text = "X";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // label4
             // 
@@ -112,6 +113,7 @@ namespace MAS_v2
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.SelectionStart = 2;
             this.guna2TextBox1.ShadowDecoration.Parent = this.guna2TextBox1;
             this.guna2TextBox1.Size = new System.Drawing.Size(39, 30);
             this.guna2TextBox1.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
@@ -136,25 +138,21 @@ namespace MAS_v2
             this.guna2GroupBox1.TabIndex = 4;
             this.guna2GroupBox1.Text = "Одиночный сундук";
             // 
-            // label3
+            // guna2Button2
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(107, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(20, 15);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "px";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(10, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Оффсет:";
+            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
+            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(55)))), ((int)(((byte)(57)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2Button2.HoverState.Parent = this.guna2Button2;
+            this.guna2Button2.Location = new System.Drawing.Point(8, 81);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
+            this.guna2Button2.Size = new System.Drawing.Size(214, 19);
+            this.guna2Button2.TabIndex = 6;
+            this.guna2Button2.Text = "Установить локацию первого слота";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // guna2ComboBox1
             // 
@@ -188,25 +186,29 @@ namespace MAS_v2
             this.label1.TabIndex = 2;
             this.label1.Text = "Активация:";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(107, 60);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(20, 15);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "px";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(10, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 15);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Оффсет:";
+            // 
             // guna2DragControl1
             // 
             this.guna2DragControl1.TargetControl = this.guna2Panel1;
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(55)))), ((int)(((byte)(57)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Location = new System.Drawing.Point(8, 81);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(214, 19);
-            this.guna2Button2.TabIndex = 6;
-            this.guna2Button2.Text = "Установить локацию первого слота";
-            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // guna2GroupBox2
             // 
