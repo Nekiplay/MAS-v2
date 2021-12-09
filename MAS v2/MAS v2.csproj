@@ -193,43 +193,57 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoClicker.cs">
+    <Compile Include="Forms\AutoClicker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AutoClicker.Designer.cs">
+    <Compile Include="Forms\AutoClicker.Designer.cs">
       <DependentUpon>AutoClicker.cs</DependentUpon>
     </Compile>
-    <Compile Include="AutoSprint.cs">
+    <Compile Include="Forms\AutoSprint.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AutoSprint.Designer.cs">
+    <Compile Include="Forms\AutoSprint.Designer.cs">
       <DependentUpon>AutoSprint.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChestStealer.cs">
+    <Compile Include="Forms\ChestStealer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChestStealer.Designer.cs">
+    <Compile Include="Forms\ChestStealer.Designer.cs">
       <DependentUpon>ChestStealer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\MenuSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\MenuSelector.Designer.cs">
+      <DependentUpon>MenuSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AutoClicker.resx">
+    <Compile Include="Security\FakeForms\WinlockerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Security\FakeForms\WinlockerForm.Designer.cs">
+      <DependentUpon>WinlockerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Security\SecurityManager.cs" />
+    <Compile Include="Security\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Security\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Perlin2D.cs" />
+    <EmbeddedResource Include="Forms\AutoClicker.resx">
       <DependentUpon>AutoClicker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AutoSprint.resx">
+    <EmbeddedResource Include="Forms\AutoSprint.resx">
       <DependentUpon>AutoSprint.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChestStealer.resx">
+    <EmbeddedResource Include="Forms\ChestStealer.resx">
       <DependentUpon>ChestStealer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MenuSelector.resx">
+      <DependentUpon>MenuSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -240,6 +254,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Security\FakeForms\WinlockerForm.resx">
+      <DependentUpon>WinlockerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Security\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

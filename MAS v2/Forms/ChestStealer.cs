@@ -15,11 +15,12 @@ namespace MAS_v2
         {
             InitializeComponent();
         }
-        static MacrosUpdater updater = new MacrosUpdater();
-        static MacrosManager manager = new MacrosManager(updater);
+        private MacrosManager manager = null;
         Stealer stealer = new Stealer();
         private void ChestStealer_Load(object sender, EventArgs e)
         {
+            MacrosUpdater updater = new MacrosUpdater();
+            manager = new MacrosManager(updater);
             this.FormBorderStyle = FormBorderStyle.None;
             try
             {
@@ -44,6 +45,8 @@ namespace MAS_v2
 
             guna2ComboBox1.Text = stealer.settings.KeySolo.ToString();
             guna2ComboBox2.Text = stealer.settings.KeyDouble.ToString();
+
+            guna2ComboBox3.Text = stealer.settings.speed.ToString();
 
             guna2TextBox1.Text = stealer.settings.offset.ToString();
 
@@ -134,12 +137,28 @@ namespace MAS_v2
                 }
                 return false;
             }
+            public enum Speed
+            {
+                Normal,
+                Fast,
+                Insane,
+            }
             private void Click()
             {
                 Sleep(1);
                 MouseDown(MouseKey.Left);
                 MouseUp(MouseKey.Left);
-                Sleep(2);
+                switch (settings.speed)
+                {
+                    case (Speed.Normal):
+                        Sleep(2);
+                        break;
+                    case (Speed.Fast):
+                        Sleep(1);
+                        break;
+                    case (Speed.Insane):
+                        break;
+                }
             }
             private void Double()
             {
@@ -266,9 +285,11 @@ namespace MAS_v2
             }
             public override bool OnMouseMove(int x, int y)
             {
-                if (Looting)
+                switch (Looting)
                 {
-                    return true;
+                    case (true):
+                        return true;
+                        break;
                 }
                 return false;
             }
@@ -296,6 +317,8 @@ namespace MAS_v2
                 public Key KeyDouble;
                 public Point FirstSlotSolo;
                 public Point FirstSlotDouble;
+                [JsonConverter(typeof(StringEnumConverter))]
+                public Speed speed = Speed.Normal;
             }
         }
 
@@ -341,6 +364,15 @@ namespace MAS_v2
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void guna2ComboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Enum.TryParse(guna2ComboBox3.Text, out Stealer.Speed speed))
+            {
+                stealer.settings.speed = speed;
+                stealer.SaveCFG();
+            }
         }
     }
 }

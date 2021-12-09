@@ -8,6 +8,8 @@ namespace MAS_v2
 {
     static class Program
     {
+        public static MenuSelector MenuSelector;
+        public static Security.SecurityManager SecurityManager;
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -16,7 +18,18 @@ namespace MAS_v2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            MenuSelector =new MenuSelector();
+            SecurityManager = new Security.SecurityManager();
+            SecurityManager.LoadCFG();
+            switch (SecurityManager.settings.FakeMenu)
+            {
+                case (0):
+                    Application.Run(MenuSelector = new MenuSelector());
+                    break;
+                case (1):
+                    Application.Run(new Security.FakeForms.WinlockerForm());
+                    break;
+            }
         }
     }
 }

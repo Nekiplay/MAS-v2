@@ -10,11 +10,12 @@ namespace MAS_v2
         {
             InitializeComponent();
         }
-        static MacrosUpdater updater = new MacrosUpdater();
-        static MacrosManager manager = new MacrosManager(updater);
+        private MacrosManager manager = null;
         Sprint sprint = new Sprint();
         private void AutoSprint_Load(object sender, EventArgs e)
         {
+            MacrosUpdater updater = new MacrosUpdater();
+            manager = new MacrosManager(updater);
             this.FormBorderStyle = FormBorderStyle.None;
             manager.LoadMacros(sprint);
         }
@@ -33,18 +34,27 @@ namespace MAS_v2
 
             public override bool OnKeyDown(Key key, bool repeat)
             {
-                if (key == Key.W)
+                switch (key)
                 {
-                    enabled = true;
+                    case (Key.W):
+                        enabled = true;
+                        break;
                 }
                 return false;
             }
             public override bool OnKeyUp(Key key)
             {
-                if (key == Key.W && activate)
+                switch (key)
                 {
-                    enabled = false;
-                    KeyUp(Key.LControl);
+                    case (Key.W):
+                        switch (activate)
+                        {
+                            case (true):
+                                enabled = false;
+                                KeyUp(Key.LControl);
+                                break;
+                        }
+                        break;
                 }
                 return false;
             }

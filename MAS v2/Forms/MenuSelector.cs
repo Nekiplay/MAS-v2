@@ -10,15 +10,16 @@ using System.Windows.Forms;
 
 namespace MAS_v2
 {
-    public partial class Form1 : Form
+    public partial class MenuSelector : Form
     {
-        public Form1()
+        public MenuSelector()
         {
             InitializeComponent();
         }
-        AutoSprint auto = new AutoSprint();
-        AutoClicker clicker = new AutoClicker();
-        ChestStealer stealer = new ChestStealer();
+        private AutoSprint auto = new AutoSprint();
+        private AutoClicker clicker = new AutoClicker();
+        private ChestStealer stealer = new ChestStealer();
+        private Security.SettingsForm settingsForm = new Security.SettingsForm();
         private void Form1_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.None;
@@ -26,6 +27,7 @@ namespace MAS_v2
             guna2ComboBox1.Items.Add("Auto Clicker");
             guna2ComboBox1.Items.Add("Auto Sprint");
             guna2ComboBox1.Items.Add("Chest Stealer");
+            guna2ComboBox1.Items.Add("Settings");
         }
 
 
@@ -60,6 +62,10 @@ namespace MAS_v2
                 else if (item == "Chest Stealer")
                 {
                     stealer.Show();
+                }
+                else if (item == "Settings")
+                {
+                    settingsForm.Show();
                 }
             }
         }
