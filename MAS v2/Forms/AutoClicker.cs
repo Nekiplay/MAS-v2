@@ -76,6 +76,9 @@ namespace MAS_v2
 
                 guna2TrackBar2.Invoke((MethodInvoker)(() => guna2TrackBar2.Value = leftclicker.settings.Jiterdelay));
                 label10.Invoke((MethodInvoker)(() => label10.Text = leftclicker.settings.Jiterdelay.ToString() + " ms"));
+
+                guna2TrackBar3.Invoke((MethodInvoker)(() => guna2TrackBar3.Value = leftclicker.settings.Randomize));
+                label12.Invoke((MethodInvoker)(() => label12.Text = leftclicker.settings.Randomize.ToString() + " ms"));
             });
 
             /* Загрузка правого кликера */

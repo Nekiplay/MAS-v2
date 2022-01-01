@@ -87,6 +87,9 @@ namespace MAS_v2.Security.FakeForms
             // guna2Button12
             // 
             this.guna2Button12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Button12.BorderColor = System.Drawing.Color.White;
+            this.guna2Button12.BorderRadius = 1;
+            this.guna2Button12.BorderThickness = 1;
             this.guna2Button12.CheckedState.Parent = this.guna2Button12;
             this.guna2Button12.CustomImages.Parent = this.guna2Button12;
             this.guna2Button12.FillColor = System.Drawing.Color.Black;
@@ -104,6 +107,9 @@ namespace MAS_v2.Security.FakeForms
             // guna2Button9
             // 
             this.guna2Button9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Button9.BorderColor = System.Drawing.Color.White;
+            this.guna2Button9.BorderRadius = 1;
+            this.guna2Button9.BorderThickness = 1;
             this.guna2Button9.CheckedState.Parent = this.guna2Button9;
             this.guna2Button9.CustomImages.Parent = this.guna2Button9;
             this.guna2Button9.FillColor = System.Drawing.Color.Black;
@@ -121,6 +127,9 @@ namespace MAS_v2.Security.FakeForms
             // guna2Button10
             // 
             this.guna2Button10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Button10.BorderColor = System.Drawing.Color.White;
+            this.guna2Button10.BorderRadius = 1;
+            this.guna2Button10.BorderThickness = 1;
             this.guna2Button10.CheckedState.Parent = this.guna2Button10;
             this.guna2Button10.CustomImages.Parent = this.guna2Button10;
             this.guna2Button10.FillColor = System.Drawing.Color.Black;
@@ -138,6 +147,9 @@ namespace MAS_v2.Security.FakeForms
             // guna2Button11
             // 
             this.guna2Button11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Button11.BorderColor = System.Drawing.Color.White;
+            this.guna2Button11.BorderRadius = 1;
+            this.guna2Button11.BorderThickness = 1;
             this.guna2Button11.CheckedState.Parent = this.guna2Button11;
             this.guna2Button11.CustomImages.Parent = this.guna2Button11;
             this.guna2Button11.FillColor = System.Drawing.Color.Black;
@@ -155,6 +167,9 @@ namespace MAS_v2.Security.FakeForms
             // guna2Button6
             // 
             this.guna2Button6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Button6.BorderColor = System.Drawing.Color.White;
+            this.guna2Button6.BorderRadius = 1;
+            this.guna2Button6.BorderThickness = 1;
             this.guna2Button6.CheckedState.Parent = this.guna2Button6;
             this.guna2Button6.CustomImages.Parent = this.guna2Button6;
             this.guna2Button6.FillColor = System.Drawing.Color.Black;
@@ -172,6 +187,9 @@ namespace MAS_v2.Security.FakeForms
             // guna2Button7
             // 
             this.guna2Button7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Button7.BorderColor = System.Drawing.Color.White;
+            this.guna2Button7.BorderRadius = 1;
+            this.guna2Button7.BorderThickness = 1;
             this.guna2Button7.CheckedState.Parent = this.guna2Button7;
             this.guna2Button7.CustomImages.Parent = this.guna2Button7;
             this.guna2Button7.FillColor = System.Drawing.Color.Black;
@@ -189,6 +207,9 @@ namespace MAS_v2.Security.FakeForms
             // guna2Button8
             // 
             this.guna2Button8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Button8.BorderColor = System.Drawing.Color.White;
+            this.guna2Button8.BorderRadius = 1;
+            this.guna2Button8.BorderThickness = 1;
             this.guna2Button8.CheckedState.Parent = this.guna2Button8;
             this.guna2Button8.CustomImages.Parent = this.guna2Button8;
             this.guna2Button8.FillColor = System.Drawing.Color.Black;
@@ -206,6 +227,9 @@ namespace MAS_v2.Security.FakeForms
             // guna2Button5
             // 
             this.guna2Button5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Button5.BorderColor = System.Drawing.Color.White;
+            this.guna2Button5.BorderRadius = 1;
+            this.guna2Button5.BorderThickness = 1;
             this.guna2Button5.CheckedState.Parent = this.guna2Button5;
             this.guna2Button5.CustomImages.Parent = this.guna2Button5;
             this.guna2Button5.FillColor = System.Drawing.Color.Black;
@@ -223,6 +247,9 @@ namespace MAS_v2.Security.FakeForms
             // guna2Button4
             // 
             this.guna2Button4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Button4.BorderColor = System.Drawing.Color.White;
+            this.guna2Button4.BorderRadius = 1;
+            this.guna2Button4.BorderThickness = 1;
             this.guna2Button4.CheckedState.Parent = this.guna2Button4;
             this.guna2Button4.CustomImages.Parent = this.guna2Button4;
             this.guna2Button4.FillColor = System.Drawing.Color.Black;
@@ -240,6 +267,9 @@ namespace MAS_v2.Security.FakeForms
             // guna2Button3
             // 
             this.guna2Button3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Button3.BorderColor = System.Drawing.Color.White;
+            this.guna2Button3.BorderRadius = 1;
+            this.guna2Button3.BorderThickness = 1;
             this.guna2Button3.CheckedState.Parent = this.guna2Button3;
             this.guna2Button3.CustomImages.Parent = this.guna2Button3;
             this.guna2Button3.FillColor = System.Drawing.Color.Black;
@@ -257,16 +287,19 @@ namespace MAS_v2.Security.FakeForms
             // guna2Button2
             // 
             this.guna2Button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Button2.BorderColor = System.Drawing.Color.White;
+            this.guna2Button2.BorderRadius = 1;
+            this.guna2Button2.BorderThickness = 1;
             this.guna2Button2.CheckedState.Parent = this.guna2Button2;
             this.guna2Button2.CustomImages.Parent = this.guna2Button2;
             this.guna2Button2.FillColor = System.Drawing.Color.Black;
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
             this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Location = new System.Drawing.Point(412, 226);
+            this.guna2Button2.Location = new System.Drawing.Point(407, 226);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(127, 29);
+            this.guna2Button2.Size = new System.Drawing.Size(132, 29);
             this.guna2Button2.TabIndex = 16;
             this.guna2Button2.Text = "Ok";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
@@ -274,6 +307,9 @@ namespace MAS_v2.Security.FakeForms
             // guna2Button1
             // 
             this.guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Button1.BorderColor = System.Drawing.Color.White;
+            this.guna2Button1.BorderRadius = 1;
+            this.guna2Button1.BorderThickness = 1;
             this.guna2Button1.CheckedState.Parent = this.guna2Button1;
             this.guna2Button1.CustomImages.Parent = this.guna2Button1;
             this.guna2Button1.FillColor = System.Drawing.Color.Black;
@@ -283,7 +319,7 @@ namespace MAS_v2.Security.FakeForms
             this.guna2Button1.Location = new System.Drawing.Point(267, 226);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(127, 29);
+            this.guna2Button1.Size = new System.Drawing.Size(132, 29);
             this.guna2Button1.TabIndex = 15;
             this.guna2Button1.Text = "Clear";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);

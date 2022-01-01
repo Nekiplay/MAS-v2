@@ -16,7 +16,7 @@ namespace MAS_v2
             InitializeComponent();
         }
         private MacrosManager manager = null;
-        Stealer stealer = new Stealer();
+        private Stealer stealer = new Stealer();
         private void ChestStealer_Load(object sender, EventArgs e)
         {
             MacrosUpdater updater = new MacrosUpdater();
@@ -25,7 +25,6 @@ namespace MAS_v2
             try
             {
                 stealer.LoadCFG();
-                Console.WriteLine("Загружен");
             }
             catch
             {
@@ -43,10 +42,29 @@ namespace MAS_v2
                 }
             }
 
+            keys = Enum.GetNames(typeof(MouseKey));
+            foreach (string key in keys)
+            {
+                if (key != "None" || key != "Left" || key != "Right")
+                {
+                    guna2ComboBox1.Items.Add(key);
+                    guna2ComboBox2.Items.Add(key);
+                }
+            }
+
             guna2ComboBox1.Text = stealer.settings.KeySolo.ToString();
             guna2ComboBox2.Text = stealer.settings.KeyDouble.ToString();
+            if (stealer.settings.MouseKeySolo != MouseKey.None)
+                guna2ComboBox1.Text = stealer.settings.MouseKeySolo.ToString();
+            if (stealer.settings.MouseKeyDouble != MouseKey.None)
+                guna2ComboBox2.Text = stealer.settings.MouseKeyDouble.ToString();
 
             guna2ComboBox3.Text = stealer.settings.speed.ToString();
+            if (stealer.settings.speed == Stealer.Speed.Custom)
+            {
+                guna2GroupBox4.Visible = true;
+                guna2TextBox2.Text = stealer.settings.custom_speed.ToString();
+            }
 
             guna2TextBox1.Text = stealer.settings.offset.ToString();
 
@@ -119,7 +137,15 @@ namespace MAS_v2
             }
             public override bool OnMouseDown(MouseKey key)
             {
-                if (SlotFirstSolo && key == MouseKey.Middle)
+                if (key == settings.MouseKeySolo)
+                {
+                    enableSolo = true;
+                }
+                else if (key == settings.MouseKeyDouble)
+                {
+                    enableDouble = true;
+                }
+                else if (SlotFirstSolo && key == MouseKey.Middle)
                 {
                     settings.FirstSlotSolo = System.Windows.Forms.Cursor.Position;
                     SlotFirstSolo = false;
@@ -139,6 +165,9 @@ namespace MAS_v2
             }
             public enum Speed
             {
+                Custom,
+                Turtle,
+                Slow,
                 Normal,
                 Fast,
                 Insane,
@@ -150,6 +179,15 @@ namespace MAS_v2
                 MouseUp(MouseKey.Left);
                 switch (settings.speed)
                 {
+                    case (Speed.Custom):
+                        Sleep(settings.custom_speed);
+                        break;
+                    case (Speed.Turtle):
+                        Sleep(4);
+                        break;
+                    case (Speed.Slow):
+                        Sleep(3);
+                        break;
                     case (Speed.Normal):
                         Sleep(2);
                         break;
@@ -289,7 +327,6 @@ namespace MAS_v2
                 {
                     case (true):
                         return true;
-                        break;
                 }
                 return false;
             }
@@ -310,11 +347,16 @@ namespace MAS_v2
             public class Settings
             {
                 public int offset = 35;
+                public int custom_speed = 4;
 
                 [JsonConverter(typeof(StringEnumConverter))]
                 public Key KeySolo;
                 [JsonConverter(typeof(StringEnumConverter))]
+                public MouseKey MouseKeySolo;
+                [JsonConverter(typeof(StringEnumConverter))]
                 public Key KeyDouble;
+                [JsonConverter(typeof(StringEnumConverter))]
+                public MouseKey MouseKeyDouble;
                 public Point FirstSlotSolo;
                 public Point FirstSlotDouble;
                 [JsonConverter(typeof(StringEnumConverter))]
@@ -324,9 +366,16 @@ namespace MAS_v2
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            stealer.settings.KeySolo = Key.None;
+            stealer.settings.MouseKeySolo = MouseKey.None;
             if (Enum.TryParse(guna2ComboBox1.Text, out Key key))
             {
                 stealer.settings.KeySolo = key;
+                stealer.SaveCFG();
+            }
+            else if (Enum.TryParse(guna2ComboBox1.Text, out MouseKey key2))
+            {
+                stealer.settings.MouseKeySolo = key2;
                 stealer.SaveCFG();
             }
         }
@@ -342,9 +391,16 @@ namespace MAS_v2
 
         private void guna2ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            stealer.settings.KeyDouble = Key.None;
+            stealer.settings.MouseKeyDouble = MouseKey.None;
             if (Enum.TryParse(guna2ComboBox2.Text, out Key key))
             {
                 stealer.settings.KeyDouble = key;
+                stealer.SaveCFG();
+            }
+            else if (Enum.TryParse(guna2ComboBox2.Text, out MouseKey key2))
+            {
+                stealer.settings.MouseKeyDouble = key2;
                 stealer.SaveCFG();
             }
         }
@@ -371,6 +427,24 @@ namespace MAS_v2
             if (Enum.TryParse(guna2ComboBox3.Text, out Stealer.Speed speed))
             {
                 stealer.settings.speed = speed;
+                if (speed == Stealer.Speed.Custom)
+                {
+                    guna2GroupBox4.Visible = true;
+                }
+                else
+                {
+                    guna2GroupBox4.Visible = false;
+                }
+                
+                stealer.SaveCFG();
+            }
+        }
+
+        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (int.TryParse(guna2TextBox2.Text, out int offset))
+            {
+                stealer.settings.custom_speed = offset;
                 stealer.SaveCFG();
             }
         }

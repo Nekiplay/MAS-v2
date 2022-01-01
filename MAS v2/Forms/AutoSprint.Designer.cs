@@ -36,6 +36,7 @@ namespace MAS_v2
             this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Panel1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -43,6 +44,7 @@ namespace MAS_v2
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.guna2Panel1.Controls.Add(this.guna2Button1);
             this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -110,8 +112,9 @@ namespace MAS_v2
             // 
             this.guna2GroupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(32)))), ((int)(((byte)(33)))));
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.Black;
+            this.guna2GroupBox1.BorderRadius = 1;
             this.guna2GroupBox1.Controls.Add(this.guna2CheckBox1);
-            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(55)))), ((int)(((byte)(57)))));
+            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.guna2GroupBox1.CustomBorderThickness = new System.Windows.Forms.Padding(1);
             this.guna2GroupBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -122,6 +125,10 @@ namespace MAS_v2
             this.guna2GroupBox1.Size = new System.Drawing.Size(89, 65);
             this.guna2GroupBox1.TabIndex = 6;
             this.guna2GroupBox1.Text = "Autosprint";
+            // 
+            // guna2DragControl2
+            // 
+            this.guna2DragControl2.TargetControl = this.label4;
             // 
             // AutoSprint
             // 
@@ -135,7 +142,7 @@ namespace MAS_v2
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AutoSprint";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Auto Sprint";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AutoSprint_FormClosing);
             this.Load += new System.EventHandler(this.AutoSprint_Load);
@@ -155,5 +162,6 @@ namespace MAS_v2
         private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
     }
 }

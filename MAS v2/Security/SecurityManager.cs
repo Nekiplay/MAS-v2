@@ -11,7 +11,7 @@ namespace MAS_v2.Security
 
         public class Settings
         {
-            public int FakeMenu = 0;
+            public int FakeMenu = 2;
             public string Password = "123123";
         }
         public void LoadCFG()

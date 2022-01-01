@@ -47,15 +47,16 @@ namespace MAS_v2
             this.label7 = new System.Windows.Forms.Label();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2GroupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.guna2TrackBar3 = new Guna.UI2.WinForms.Guna2TrackBar();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.guna2TrackBar2 = new Guna.UI2.WinForms.Guna2TrackBar();
             this.label8 = new System.Windows.Forms.Label();
             this.guna2TrackBar1 = new Guna.UI2.WinForms.Guna2TrackBar();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.guna2TrackBar3 = new Guna.UI2.WinForms.Guna2TrackBar();
+            this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2GroupBox1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
@@ -94,12 +95,13 @@ namespace MAS_v2
             // 
             this.guna2GroupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(32)))), ((int)(((byte)(33)))));
             this.guna2GroupBox1.BorderColor = System.Drawing.Color.Black;
+            this.guna2GroupBox1.BorderRadius = 1;
             this.guna2GroupBox1.Controls.Add(this.label3);
             this.guna2GroupBox1.Controls.Add(this.label2);
             this.guna2GroupBox1.Controls.Add(this.guna2ComboBox1);
             this.guna2GroupBox1.Controls.Add(this.label1);
             this.guna2GroupBox1.Controls.Add(this.guna2TextBox1);
-            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(55)))), ((int)(((byte)(57)))));
+            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.guna2GroupBox1.CustomBorderThickness = new System.Windows.Forms.Padding(1);
             this.guna2GroupBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -136,10 +138,11 @@ namespace MAS_v2
             // guna2ComboBox1
             // 
             this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderColor = System.Drawing.Color.Black;
+            this.guna2ComboBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2ComboBox1.BorderRadius = 1;
             this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2ComboBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.guna2ComboBox1.FocusedColor = System.Drawing.Color.Empty;
             this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
             this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -169,6 +172,7 @@ namespace MAS_v2
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.guna2Panel1.Controls.Add(this.guna2Button1);
             this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -216,12 +220,13 @@ namespace MAS_v2
             // 
             this.guna2GroupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(32)))), ((int)(((byte)(33)))));
             this.guna2GroupBox2.BorderColor = System.Drawing.Color.Black;
+            this.guna2GroupBox2.BorderRadius = 1;
             this.guna2GroupBox2.Controls.Add(this.label5);
             this.guna2GroupBox2.Controls.Add(this.label6);
             this.guna2GroupBox2.Controls.Add(this.guna2ComboBox2);
             this.guna2GroupBox2.Controls.Add(this.label7);
             this.guna2GroupBox2.Controls.Add(this.guna2TextBox2);
-            this.guna2GroupBox2.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(55)))), ((int)(((byte)(57)))));
+            this.guna2GroupBox2.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.guna2GroupBox2.CustomBorderThickness = new System.Windows.Forms.Padding(1);
             this.guna2GroupBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.guna2GroupBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -258,10 +263,11 @@ namespace MAS_v2
             // guna2ComboBox2
             // 
             this.guna2ComboBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox2.BorderColor = System.Drawing.Color.Black;
+            this.guna2ComboBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2ComboBox2.BorderRadius = 1;
             this.guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2ComboBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.guna2ComboBox2.FocusedColor = System.Drawing.Color.Empty;
             this.guna2ComboBox2.FocusedState.Parent = this.guna2ComboBox2;
             this.guna2ComboBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -320,6 +326,7 @@ namespace MAS_v2
             // 
             this.guna2GroupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.guna2GroupBox3.BorderColor = System.Drawing.Color.Black;
+            this.guna2GroupBox3.BorderRadius = 1;
             this.guna2GroupBox3.Controls.Add(this.label12);
             this.guna2GroupBox3.Controls.Add(this.label13);
             this.guna2GroupBox3.Controls.Add(this.guna2TrackBar3);
@@ -329,7 +336,7 @@ namespace MAS_v2
             this.guna2GroupBox3.Controls.Add(this.guna2TrackBar2);
             this.guna2GroupBox3.Controls.Add(this.label8);
             this.guna2GroupBox3.Controls.Add(this.guna2TrackBar1);
-            this.guna2GroupBox3.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(55)))), ((int)(((byte)(57)))));
+            this.guna2GroupBox3.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.guna2GroupBox3.CustomBorderThickness = new System.Windows.Forms.Padding(1);
             this.guna2GroupBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.guna2GroupBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -340,6 +347,42 @@ namespace MAS_v2
             this.guna2GroupBox3.Size = new System.Drawing.Size(226, 129);
             this.guna2GroupBox3.TabIndex = 6;
             this.guna2GroupBox3.Text = "Leftclicker settings";
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
+            this.label12.Location = new System.Drawing.Point(175, 97);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(46, 23);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "0 ms";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
+            this.label13.Location = new System.Drawing.Point(10, 100);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 15);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "Randomize:";
+            // 
+            // guna2TrackBar3
+            // 
+            this.guna2TrackBar3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.guna2TrackBar3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.guna2TrackBar3.HoverState.Parent = this.guna2TrackBar3;
+            this.guna2TrackBar3.LargeChange = 100;
+            this.guna2TrackBar3.Location = new System.Drawing.Point(80, 97);
+            this.guna2TrackBar3.Name = "guna2TrackBar3";
+            this.guna2TrackBar3.Size = new System.Drawing.Size(92, 23);
+            this.guna2TrackBar3.TabIndex = 13;
+            this.guna2TrackBar3.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.guna2TrackBar3.Value = 0;
+            this.guna2TrackBar3.ValueChanged += new System.EventHandler(this.guna2TrackBar3_ValueChanged);
             // 
             // label10
             // 
@@ -416,48 +459,16 @@ namespace MAS_v2
             this.guna2TrackBar1.Value = 0;
             this.guna2TrackBar1.ValueChanged += new System.EventHandler(this.guna2TrackBar1_ValueChanged);
             // 
-            // label12
+            // guna2DragControl2
             // 
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
-            this.label12.Location = new System.Drawing.Point(175, 97);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(46, 23);
-            this.label12.TabIndex = 14;
-            this.label12.Text = "5 ms";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
-            this.label13.Location = new System.Drawing.Point(10, 100);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(69, 15);
-            this.label13.TabIndex = 12;
-            this.label13.Text = "Randomize:";
-            // 
-            // guna2TrackBar3
-            // 
-            this.guna2TrackBar3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
-            this.guna2TrackBar3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.guna2TrackBar3.HoverState.Parent = this.guna2TrackBar3;
-            this.guna2TrackBar3.LargeChange = 100;
-            this.guna2TrackBar3.Location = new System.Drawing.Point(80, 97);
-            this.guna2TrackBar3.Name = "guna2TrackBar3";
-            this.guna2TrackBar3.Size = new System.Drawing.Size(92, 23);
-            this.guna2TrackBar3.TabIndex = 13;
-            this.guna2TrackBar3.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
-            this.guna2TrackBar3.Value = 5;
-            this.guna2TrackBar3.ValueChanged += new System.EventHandler(this.guna2TrackBar3_ValueChanged);
+            this.guna2DragControl2.TargetControl = this.label4;
             // 
             // AutoClicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.ClientSize = new System.Drawing.Size(484, 306);
+            this.ClientSize = new System.Drawing.Size(484, 302);
             this.Controls.Add(this.guna2GroupBox3);
             this.Controls.Add(this.guna2GroupBox2);
             this.Controls.Add(this.guna2Panel1);
@@ -466,7 +477,7 @@ namespace MAS_v2
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AutoClicker";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Auto Clicker";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AutoClicker_FormClosing);
             this.Load += new System.EventHandler(this.AutoClicker_Load);
@@ -509,5 +520,6 @@ namespace MAS_v2
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBar3;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
     }
 }
