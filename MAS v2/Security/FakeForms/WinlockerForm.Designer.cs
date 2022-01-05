@@ -373,7 +373,8 @@ namespace MAS_v2.Security.FakeForms
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "WinlockerForm";
-            this.Text = "WinlockerForm";
+            this.Text = "Black Winlocker";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WinlockerForm_FormClosing);
             this.Load += new System.EventHandler(this.WinlockerForm_Load);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);

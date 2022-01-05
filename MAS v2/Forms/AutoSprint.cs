@@ -39,6 +39,16 @@ namespace MAS_v2
 
         private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
+            switch (guna2CheckBox1.Checked)
+            {
+                case (false):
+                    manager.UnLoadMacros(sprint);
+                    break;
+                default:
+                    manager.UnLoadMacros(sprint);
+                    manager.LoadMacros(sprint);
+                    break;
+            }
             sprint.activate = guna2CheckBox1.Checked;
         }
 

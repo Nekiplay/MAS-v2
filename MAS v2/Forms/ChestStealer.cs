@@ -407,13 +407,17 @@ namespace MAS_v2
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Нажмите колосеко мышки на первый слот двойного сундука");
+            Forms.Notify.MessageBox message = new Forms.Notify.MessageBox("Chest stealer", "Click the mouse wheel on the first slot of the double chest");
+            message.Size = new Size(340, 127);
+            message.ShowDialog();
             stealer.SlotFirstDouble = true;
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Нажмите колосеко мышки на первый слот");
+            Forms.Notify.MessageBox message = new Forms.Notify.MessageBox("Chest stealer", "Click the mouse wheel on the first slot");
+            message.Size = new Size(250, 127);
+            message.ShowDialog();
             stealer.SlotFirstSolo = true;
         }
 

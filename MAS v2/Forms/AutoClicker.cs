@@ -79,6 +79,17 @@ namespace MAS_v2
 
                 guna2TrackBar3.Invoke((MethodInvoker)(() => guna2TrackBar3.Value = leftclicker.settings.Randomize));
                 label12.Invoke((MethodInvoker)(() => label12.Text = leftclicker.settings.Randomize.ToString() + " ms"));
+
+                if (leftclicker.settings.mode == LeftClicker.Settings.Mode.Hold)
+                {
+                    label15.Invoke((MethodInvoker)(() => label15.Text = "hold"));
+                    guna2ToggleSwitch1.Invoke((MethodInvoker)(() => guna2ToggleSwitch1 .Checked = false));
+                }
+                else
+                {
+                    label15.Invoke((MethodInvoker)(() => label15.Text = "toggle"));
+                    guna2ToggleSwitch1.Invoke((MethodInvoker)(() => guna2ToggleSwitch1.Checked = true));
+                }
             });
 
             /* Загрузка правого кликера */
@@ -103,6 +114,20 @@ namespace MAS_v2
                     guna2ComboBox2.Invoke((MethodInvoker)(() => guna2ComboBox2.Text = rightclicker.settings.mouseKey.ToString()));
                 }
                 guna2TextBox2.Invoke((MethodInvoker)(() => guna2TextBox2.Text = rightclicker.settings.delay.ToString()));
+
+                guna2TrackBar4.Invoke((MethodInvoker)(() => guna2TrackBar4.Value = rightclicker.settings.Randomize));
+                label18.Invoke((MethodInvoker)(() => label18.Text = rightclicker.settings.Randomize.ToString() + " ms"));
+
+                if (rightclicker.settings.mode == RightClicker.Settings.Mode.Hold)
+                {
+                    label16.Invoke((MethodInvoker)(() => label16.Text = "hold"));
+                    guna2ToggleSwitch2.Invoke((MethodInvoker)(() => guna2ToggleSwitch2.Checked = false));
+                }
+                else
+                {
+                    label16.Invoke((MethodInvoker)(() => label16.Text = "toggle"));
+                    guna2ToggleSwitch2.Invoke((MethodInvoker)(() => guna2ToggleSwitch2.Checked = true));
+                }
             });
 
 
@@ -120,6 +145,10 @@ namespace MAS_v2
         {
             private bool activate = false;
             public Settings settings = new Settings();
+            public void StopClick()
+            {
+                activate = false;
+            }
             public void LoadCFG()
             {
                 RegistryKey currentUserKey = Registry.CurrentUser;
@@ -165,41 +194,87 @@ namespace MAS_v2
             {
                 if (activate)
                 {
+                    int noice = 0;
+                    if (settings.Randomize > 0)
+                    {
+                        noice = (int)Noice(settings.Randomize);
+                    }
                     MouseDown(MouseKey.Right);
                     Sleep(5);
                     MouseUp(MouseKey.Right);
-                    Sleep(settings.delay - 5);
+                    if (noice > 0)
+                    {
+                        Sleep(settings.delay + noice  - 5);
+                    }
+                    else
+                    {
+                        Sleep(settings.delay - 5);
+                    }
+                }
+            }
+            private readonly Random random = new Random();
+            public float Noice(int multiply = 0, int x = 100, int y = 100)
+            {
+                switch (multiply)
+                {
+                    case (0):
+                        return 0;
+                    default:
+                        Utils.Perlin2D perlin = new Utils.Perlin2D(random.Next());
+                        float Phi = 0.70710678118f;
+                        float noice = perlin.Noise(x, y) + perlin.Noise((x - y) * Phi, (y + x) * Phi) * -1;
+                        return noice * multiply;
                 }
             }
             public override bool OnMouseDown(MouseKey key)
             {
-                if (settings.mouseKey == key)
+                switch (settings.mode)
                 {
-                    activate = true;
+                    case (Settings.Mode.Hold):
+                        if (settings.mouseKey == key)
+                            activate = true;
+                        break;
+                    case (Settings.Mode.Toggle):
+                        if (settings.mouseKey == key)
+                            activate = !activate;
+                        break;
                 }
                 return false;
             }
             public override bool OnMouseUp(MouseKey key)
             {
-                if (settings.mouseKey == key)
+                switch (settings.mode)
                 {
-                    activate = false;
+                    case (Settings.Mode.Hold):
+                        if (settings.mouseKey == key)
+                            activate = false;
+                        break;
                 }
                 return false;
             }
             public override bool OnKeyDown(Key key, bool repeat)
             {
-                if (settings.key == key)
+                switch (settings.mode)
                 {
-                    activate = true;
+                    case (Settings.Mode.Hold):
+                        if (settings.key == key)
+                            activate = true;
+                        break;
+                    case (Settings.Mode.Toggle):
+                        if (settings.key == key)
+                            activate = !activate;
+                        break;
                 }
                 return false;
             }
             public override bool OnKeyUp(Key key)
             {
-                if (settings.key == key)
+                switch (settings.mode)
                 {
-                    activate = false;
+                    case (Settings.Mode.Hold):
+                        if (settings.key == key)
+                            activate = false;
+                        break;
                 }
                 return false;
             }
@@ -214,6 +289,9 @@ namespace MAS_v2
 
                 public Mode mode = Mode.Hold;
 
+                [JsonProperty("Randomize")]
+                public int Randomize = 0;
+
                 public enum Mode
                 {
                     Hold,
@@ -225,6 +303,10 @@ namespace MAS_v2
         {
             private bool activate = false;
             public Settings settings = new Settings();
+            public void StopClick()
+            {
+                activate = false;
+            }
             public void LoadCFG()
             {
                 RegistryKey currentUserKey = Registry.CurrentUser;
@@ -331,36 +413,56 @@ namespace MAS_v2
                 }
                 else { Sleep(15); }
             }
-                
+
             public override bool OnMouseDown(MouseKey key)
             {
-                if (settings.mouseKey == key)
+                switch (settings.mode)
                 {
-                    activate = true;
+                    case (Settings.Mode.Hold):
+                        if (settings.mouseKey == key)
+                            activate = true;
+                        break;
+                    case (Settings.Mode.Toggle):
+                        if (settings.mouseKey == key)
+                            activate = !activate;
+                        break;
                 }
                 return false;
             }
             public override bool OnMouseUp(MouseKey key)
             {
-                if (settings.mouseKey == key)
+                switch (settings.mode)
                 {
-                    activate = false;
+                    case (Settings.Mode.Hold):
+                        if (settings.mouseKey == key)
+                            activate = false;
+                        break;
                 }
                 return false;
             }
             public override bool OnKeyDown(Key key, bool repeat)
             {
-                if (settings.key == key)
+                switch (settings.mode)
                 {
-                    activate = true;
+                    case (Settings.Mode.Hold):
+                        if (settings.key == key)
+                            activate = true;
+                        break;
+                    case (Settings.Mode.Toggle):
+                        if (settings.key == key)
+                            activate = !activate;
+                        break;
                 }
                 return false;
             }
             public override bool OnKeyUp(Key key)
             {
-                if (settings.key == key)
+                switch (settings.mode)
                 {
-                    activate = false;
+                    case (Settings.Mode.Hold):
+                        if (settings.key == key)
+                            activate = false;
+                        break;
                 }
                 return false;
             }
@@ -381,7 +483,7 @@ namespace MAS_v2
                 [JsonProperty("Jiter delay")]
                 public int Jiterdelay = 5;
                 [JsonProperty("Randomize")]
-                public int Randomize = 5;
+                public int Randomize = 0;
 
                 public enum Mode
                 {
@@ -406,11 +508,29 @@ namespace MAS_v2
             leftclicker.settings.key = Key.None;
             if (Enum.TryParse(guna2ComboBox1.Text, out Key key))
             {
+                if (key == Key.None)
+                {
+                    Lefmanager.UnLoadMacros(leftclicker);
+                }
+                else
+                {
+                    Lefmanager.UnLoadMacros(leftclicker);
+                    Lefmanager.LoadMacros(leftclicker);
+                }
                 leftclicker.settings.key = key;
                 leftclicker.SaveCFG();
             }
             else if (Enum.TryParse(guna2ComboBox1.Text, out MouseKey mkey))
             {
+                if (mkey == MouseKey.None)
+                {
+                    Lefmanager.UnLoadMacros(leftclicker);
+                }
+                else
+                {
+                    Lefmanager.UnLoadMacros(leftclicker);
+                    Lefmanager.LoadMacros(leftclicker);
+                }
                 leftclicker.settings.mouseKey = mkey;
                 leftclicker.SaveCFG();
             }
@@ -427,11 +547,29 @@ namespace MAS_v2
             rightclicker.settings.key = Key.None;
             if (Enum.TryParse(guna2ComboBox2.Text, out Key key))
             {
+                if (key == Key.None)
+                {
+                    Rightmanager.UnLoadMacros(rightclicker);
+                }
+                else
+                {
+                    Rightmanager.UnLoadMacros(rightclicker);
+                    Rightmanager.LoadMacros(rightclicker);
+                }
                 rightclicker.settings.key = key;
                 rightclicker.SaveCFG();
             }
             else if (Enum.TryParse(guna2ComboBox2.Text, out MouseKey mkey))
             {
+                if (mkey == MouseKey.None)
+                {
+                    Rightmanager.UnLoadMacros(rightclicker);
+                }
+                else
+                {
+                    Rightmanager.UnLoadMacros(rightclicker);
+                    Rightmanager.LoadMacros(rightclicker);
+                }
                 rightclicker.settings.mouseKey = mkey;
                 rightclicker.SaveCFG();
             }
@@ -468,6 +606,48 @@ namespace MAS_v2
             label12.Text += " ms";
             leftclicker.settings.Randomize = guna2TrackBar3.Value;
             leftclicker.SaveCFG();
+        }
+
+        private void guna2ToggleSwitch1_CheckedChanged(object sender, EventArgs e)
+        {
+            switch (guna2ToggleSwitch1.Checked)
+            {
+                case (true):
+                    leftclicker.settings.mode = LeftClicker.Settings.Mode.Toggle;
+                    label15.Text = "toggle";
+                    break;
+                case (false):
+                    leftclicker.settings.mode = LeftClicker.Settings.Mode.Hold;
+                    label15.Text = "hold";
+                    break;
+            }
+            leftclicker.StopClick();
+            leftclicker.SaveCFG();
+        }
+
+        private void guna2TrackBar4_ValueChanged(object sender, EventArgs e)
+        {
+            label18.Text = guna2TrackBar4.Value.ToString();
+            label18.Text += " ms";
+            rightclicker.settings.Randomize = guna2TrackBar4.Value;
+            rightclicker.SaveCFG();
+        }
+
+        private void guna2ToggleSwitch2_CheckedChanged(object sender, EventArgs e)
+        {
+            switch (guna2ToggleSwitch2.Checked)
+            {
+                case (true):
+                    rightclicker.settings.mode = RightClicker.Settings.Mode.Toggle;
+                    label16.Text = "toggle";
+                    break;
+                case (false):
+                    rightclicker.settings.mode = RightClicker.Settings.Mode.Hold;
+                    label16.Text = "hold";
+                    break;
+            }
+            rightclicker.StopClick();
+            rightclicker.SaveCFG();
         }
     }
 }

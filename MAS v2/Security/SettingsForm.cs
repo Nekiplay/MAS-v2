@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Linq;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.Win32;
 
 namespace MAS_v2.Security
 {
@@ -50,9 +54,6 @@ namespace MAS_v2.Security
             {
                 e.Handled = true;
             }
-            else
-            {
-            }
         }
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
@@ -82,6 +83,47 @@ namespace MAS_v2.Security
         private void label3_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://vk.com/im?sel=-209453266");
+        }
+        private string GetApplicationName()
+        {
+            string[] path = Application.ExecutablePath.Split('\\');
+            if (path.Length > 0)
+            {
+                return path.Last();
+            }
+            else
+            {
+                return Application.ExecutablePath;
+            }
+        }
+
+        private async void guna2Button2_Click(object sender, EventArgs e)
+        {
+            Task Prefetch = Task.Factory.StartNew(() =>
+            {
+                if (Directory.Exists("C:\\Windows\\Prefetch"))
+                {
+                    string[] files = Directory.GetFiles("C:\\Windows\\Prefetch");
+                    foreach (string file in files)
+                    {
+                        if (file.Contains(GetApplicationName().ToUpper()))
+                        {
+                            try { File.Delete(file); } catch { }
+                        }
+                    }
+                }
+            });
+            Task Settings = Task.Factory.StartNew(() =>
+            {
+
+                RegistryKey currentUserKey = Registry.CurrentUser;
+                RegistryKey software = currentUserKey.OpenSubKey("SOFTWARE", true);
+                software.DeleteSubKey("MAS");
+
+            });
+            await Prefetch;
+            await Settings;
+            Program.Exit();
         }
     }
 }
