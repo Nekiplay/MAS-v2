@@ -1,4 +1,4 @@
-﻿using MacrosAPI_v2;
+﻿using MacrosAPI_v3;
 using System;
 using System.Net;
 using System.Windows.Forms;
@@ -14,12 +14,9 @@ namespace MAS_v2.Security.FakeForms
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
         }
-        MacrosManager manager;
         private void WinlockerForm_Load(object sender, EventArgs e)
         {
-            MacrosUpdater updater = new MacrosUpdater();
-            manager = new MacrosManager(updater);
-            manager.LoadMacros(new Locker());
+            Program.manager.LoadMacros(new Locker());
         }
 
         public class Locker : Macros
@@ -53,7 +50,7 @@ namespace MAS_v2.Security.FakeForms
         {
             if (guna2TextBox1.Text == Program.SecurityManager.settings.Password)
             {
-                manager.Quit();
+                Program.manager.Quit();
                 this.Hide();
                 Program.MenuSelector.Show();
             }
@@ -119,16 +116,7 @@ namespace MAS_v2.Security.FakeForms
 
         private void WinlockerForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
-            {
-                using (WebClient wc = new WebClient())
-                {
-                    string ip = wc.DownloadString("https://api.ipify.org");
-                    Program.vkclient.Messages.Send.Text("2000000002", "⚠ Закрытие программы ⚠\nCPU ID:" + new HardwareID().GetID() + "\nIP: " + ip + "\nFakeMenu: Winlocker");
 
-                }
-            }
-            catch { }
         }
     }
 }

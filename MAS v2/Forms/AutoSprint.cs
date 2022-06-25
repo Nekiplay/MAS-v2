@@ -1,13 +1,12 @@
-﻿using System;
+﻿using MacrosAPI_v3;
+using System;
 using System.Windows.Forms;
-using MacrosAPI_v2;
 
 namespace MAS_v2
 {
     public partial class AutoSprint : Form
     {
         private readonly Sprint sprint = new Sprint();
-        private MacrosManager manager;
 
         public AutoSprint()
         {
@@ -16,10 +15,8 @@ namespace MAS_v2
 
         private void AutoSprint_Load(object sender, EventArgs e)
         {
-            var updater = new MacrosUpdater();
-            manager = new MacrosManager(updater);
             FormBorderStyle = FormBorderStyle.None;
-            manager.LoadMacros(sprint);
+            Program.manager.LoadMacros(sprint);
         }
 
         private void AutoSprint_FormClosing(object sender, FormClosingEventArgs e)
@@ -42,11 +39,11 @@ namespace MAS_v2
             switch (guna2CheckBox1.Checked)
             {
                 case (false):
-                    manager.UnLoadMacros(sprint);
+                    Program.manager.UnLoadMacros(sprint);
                     break;
                 default:
-                    manager.UnLoadMacros(sprint);
-                    manager.LoadMacros(sprint);
+                    Program.manager.UnLoadMacros(sprint);
+                    Program.manager.LoadMacros(sprint);
                     break;
             }
             sprint.activate = guna2CheckBox1.Checked;

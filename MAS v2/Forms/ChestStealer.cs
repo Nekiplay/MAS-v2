@@ -1,4 +1,4 @@
-﻿using MacrosAPI_v2;
+﻿using MacrosAPI_v3;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -15,12 +15,9 @@ namespace MAS_v2
         {
             InitializeComponent();
         }
-        private MacrosManager manager = null;
         private Stealer stealer = new Stealer();
         private void ChestStealer_Load(object sender, EventArgs e)
         {
-            MacrosUpdater updater = new MacrosUpdater();
-            manager = new MacrosManager(updater);
             this.FormBorderStyle = FormBorderStyle.None;
             try
             {
@@ -68,7 +65,7 @@ namespace MAS_v2
 
             guna2TextBox1.Text = stealer.settings.offset.ToString();
 
-            manager.LoadMacros(stealer);
+            Program.manager.LoadMacros(stealer);
         }
 
         public class Stealer : Macros

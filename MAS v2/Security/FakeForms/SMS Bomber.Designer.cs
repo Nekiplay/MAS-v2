@@ -40,10 +40,8 @@ namespace MAS_v2.Security.FakeForms
             this.label4 = new System.Windows.Forms.Label();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.toastNotificationsManager1 = new DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager(this.components);
             this.guna2GroupBox1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2GroupBox1
@@ -193,13 +191,6 @@ namespace MAS_v2.Security.FakeForms
             // 
             this.guna2DragControl2.TargetControl = this.label4;
             // 
-            // toastNotificationsManager1
-            // 
-            this.toastNotificationsManager1.ApplicationId = "Minecraft Attack System";
-            this.toastNotificationsManager1.Notifications.AddRange(new DevExpress.XtraBars.ToastNotifications.IToastNotificationProperties[] {
-            new DevExpress.XtraBars.ToastNotifications.ToastNotification("15291382-5faf-433b-b8cc-4de53ee50e7e", global::MAS_v2.Properties.Resources.icons8_майнкрафт_480, "Authorization", "Authorization completed", "", DevExpress.XtraBars.ToastNotifications.ToastNotificationTemplate.ImageAndText01)});
-            this.toastNotificationsManager1.ThrowOnErrors = DevExpress.Utils.DefaultBoolean.False;
-            // 
             // SMS_Bomber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -218,7 +209,6 @@ namespace MAS_v2.Security.FakeForms
             this.guna2GroupBox1.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.toastNotificationsManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -235,6 +225,5 @@ namespace MAS_v2.Security.FakeForms
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private DevExpress.XtraBars.ToastNotifications.ToastNotificationsManager toastNotificationsManager1;
     }
 }

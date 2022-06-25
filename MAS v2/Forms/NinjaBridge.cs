@@ -1,4 +1,4 @@
-﻿using MacrosAPI_v2;
+﻿using MacrosAPI_v3;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -24,11 +24,7 @@ namespace MAS_v2.Forms
 
         private void NinjaBridge_Load(object sender, EventArgs e)
         {
-            MacrosUpdater updater = new MacrosUpdater();
-            macrosManager = new MacrosManager(updater);
-
             try { macro.LoadCFG(); } catch { }
-
 
 
             string[] keys = Enum.GetNames(typeof(Key));
@@ -221,7 +217,6 @@ namespace MAS_v2.Forms
             }
         }
         private NinjaBridgeMacro macro = new NinjaBridgeMacro();
-        private MacrosManager macrosManager = null;
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             macro.settings.mouseKey = MouseKey.None;
@@ -230,12 +225,12 @@ namespace MAS_v2.Forms
             {
                 if (key == Key.None)
                 {
-                    macrosManager.UnLoadMacros(macro);
+                    Program.manager.UnLoadMacros(macro);
                 }
                 else
                 {
-                    macrosManager.UnLoadMacros(macro);
-                    macrosManager.LoadMacros(macro);
+                    Program.manager.UnLoadMacros(macro);
+                    Program.manager.LoadMacros(macro);
                 }
                 macro.settings.key = key;
                 macro.SaveCFG();

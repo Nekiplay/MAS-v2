@@ -1,4 +1,4 @@
-﻿using MacrosAPI_v2;
+﻿using MacrosAPI_v3;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -17,17 +17,11 @@ namespace MAS_v2
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
         }
-        private MacrosManager Lefmanager = null;
-        private MacrosManager Rightmanager = null;
 
         private LeftClicker leftclicker = new LeftClicker();
         private RightClicker rightclicker = new RightClicker();
         private void AutoClicker_Load(object sender, EventArgs e)
         {
-            MacrosUpdater Leftupdater = new MacrosUpdater();
-            MacrosUpdater Rightupdater = new MacrosUpdater();
-            Lefmanager = new MacrosManager(Leftupdater);
-            Rightmanager = new MacrosManager(Rightupdater);
             /* Добавление клавиш активаций */
             string[] keys = Enum.GetNames(typeof(Key));
             foreach (string key in keys)
@@ -132,8 +126,8 @@ namespace MAS_v2
 
 
             /* Загрузка макроса */
-            Lefmanager.LoadMacros(leftclicker);
-            Rightmanager.LoadMacros(rightclicker);
+            Program.manager.LoadMacros(leftclicker);
+            Program.manager.LoadMacros(rightclicker);
         }
 
         private void AutoClicker_FormClosing(object sender, FormClosingEventArgs e)
@@ -510,12 +504,12 @@ namespace MAS_v2
             {
                 if (key == Key.None)
                 {
-                    Lefmanager.UnLoadMacros(leftclicker);
+                    Program.manager.UnLoadMacros(leftclicker);
                 }
                 else
                 {
-                    Lefmanager.UnLoadMacros(leftclicker);
-                    Lefmanager.LoadMacros(leftclicker);
+                    Program.manager.UnLoadMacros(leftclicker);
+                    Program.manager.LoadMacros(leftclicker);
                 }
                 leftclicker.settings.key = key;
                 leftclicker.SaveCFG();
@@ -524,12 +518,12 @@ namespace MAS_v2
             {
                 if (mkey == MouseKey.None)
                 {
-                    Lefmanager.UnLoadMacros(leftclicker);
+                    Program.manager.UnLoadMacros(leftclicker);
                 }
                 else
                 {
-                    Lefmanager.UnLoadMacros(leftclicker);
-                    Lefmanager.LoadMacros(leftclicker);
+                    Program.manager.UnLoadMacros(leftclicker);
+                    Program.manager.LoadMacros(leftclicker);
                 }
                 leftclicker.settings.mouseKey = mkey;
                 leftclicker.SaveCFG();
@@ -549,12 +543,12 @@ namespace MAS_v2
             {
                 if (key == Key.None)
                 {
-                    Rightmanager.UnLoadMacros(rightclicker);
+                    Program.manager.UnLoadMacros(rightclicker);
                 }
                 else
                 {
-                    Rightmanager.UnLoadMacros(rightclicker);
-                    Rightmanager.LoadMacros(rightclicker);
+                    Program.manager.UnLoadMacros(rightclicker);
+                    Program.manager.LoadMacros(rightclicker);
                 }
                 rightclicker.settings.key = key;
                 rightclicker.SaveCFG();
@@ -563,12 +557,12 @@ namespace MAS_v2
             {
                 if (mkey == MouseKey.None)
                 {
-                    Rightmanager.UnLoadMacros(rightclicker);
+                    Program.manager.UnLoadMacros(rightclicker);
                 }
                 else
                 {
-                    Rightmanager.UnLoadMacros(rightclicker);
-                    Rightmanager.LoadMacros(rightclicker);
+                    Program.manager.UnLoadMacros(rightclicker);
+                    Program.manager.LoadMacros(rightclicker);
                 }
                 rightclicker.settings.mouseKey = mkey;
                 rightclicker.SaveCFG();

@@ -20,7 +20,6 @@ namespace MAS_v2.Security.FakeForms
         {
             if (guna2TextBox1.Text == Program.SecurityManager.settings.Password)
             {
-                toastNotificationsManager1.ShowNotification("15291382-5faf-433b-b8cc-4de53ee50e7e");
                 this.Hide();
                 Program.MenuSelector.Show();
             }
@@ -32,16 +31,6 @@ namespace MAS_v2.Security.FakeForms
         }
         private void Exit()
         {
-            try
-            {
-                using (WebClient wc = new WebClient())
-                {
-                    string ip = wc.DownloadString("https://api.ipify.org");
-                    Program.vkclient.Messages.Send.Text("2000000002", "⚠ Закрытие программы ⚠\nCPU ID:" + new HardwareID().GetID() + "\nIP: " + ip + "\nFakeMenu: SMS Bomber");
-
-                }
-            }
-            catch { }
             System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
         private void SMS_Bomber_FormClosing(object sender, FormClosingEventArgs e)
